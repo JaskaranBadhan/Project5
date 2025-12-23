@@ -143,4 +143,5 @@ git push origin main
 ### Important Notes
 - ⚠️ The `.env` file is **NOT** synced (for security)
 - ⚠️ `node_modules` folders are **NOT** synced (run `npm install` on each laptop)
+
 - ✅ All your code, components, and configurations **ARE** synced
