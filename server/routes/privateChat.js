@@ -1,0 +1,13 @@
+const express = require('express');
+const router = express.Router();
+const { protect } = require('../middlewares/authMiddleware');
+const upload = require('../middlewares/uploadMiddleware');
+const { startConversation, getMyConversations, getMessages, sendMessage, likeMessage, deleteMessage, deleteConversation } = require('../controllers/privateChatController');
+router.post('/start', protect, startConversation);
+router.get('/', protect, getMyConversations);
+router.get('/:conversationId/messages', protect, getMessages);
+router.post('/messages', protect, upload.array('files', 10), sendMessage);
+router.put('/messages/:messageId/like', protect, likeMessage);
+router.delete('/messages/:messageId', protect, deleteMessage);
+router.delete('/:conversationId', protect, deleteConversation);
+module.exports = router;
